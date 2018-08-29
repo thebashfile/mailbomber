@@ -1,19 +1,33 @@
-			  ███████╗    ██████╗  ██████╗ ███╗   ███╗██████╗ 
-	                  ██╔════╝    ██╔══██╗██╔═══██╗████╗ ████║██╔══██╗
-		          █████╗█████╗██████╔╝██║   ██║██╔████╔██║██████╔╝
-			  ██╔══╝╚════╝██╔══██╗██║   ██║██║╚██╔╝██║██╔══██╗
-			  ███████╗    ██████╔╝╚██████╔╝██║ ╚═╝ ██║██████╔╝
-			  ╚══════╝    ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═════╝ 
-			
- This tools is meant for security & educational purposes only!
- I am not responsible for what you do/use with this tool!
- If you use this tool for other than its intended for, you are now doing illeagle shit :)
+	 	 ██████╗       ██████╗ ██████╗ ██╗   ██╗████████╗███████╗
+ 	   	██╔════╝       ██╔══██╗██╔══██╗██║   ██║╚══██╔══╝██╔════╝
+	 	██║  ███╗█████╗██████╔╝██████╔╝██║   ██║   ██║   █████╗  
+	 	██║   ██║╚════╝██╔══██╗██╔══██╗██║   ██║   ██║   ██╔══╝  
+	 	╚██████╔╝      ██████╔╝██║  ██║╚██████╔╝   ██║   ███████╗
+		 ╚═════╝       ╚═════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝
+
+## Legal disclaimer:
+Usage of EBomb for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program 			
+ - This tool is meant for security & educational purposes only!
+ - I am not responsible for what you do/use with this tool!
+ - This script is harmless but can be used maliciously.
 
 Instagram: @sprx.sh
 Discord: SQLFail#6868
 
+Screen Shot: ![EBomb](https://imgur.com/a/l7kDuhl)
+
+# How to Install & Use
+```
+ - $ git clone https://github.com/sprxsh/emailbomber/
+ - $ cd emailbomber
+ - $ sudo python EBomb.py
+```
+
+### How it works?
+It uses SMTP Servers to loginto your email account and allows you to send mass emails!
+
 		   #########################################################
 		   #		Creator: @sprx.sh			   #
 		   #		Do not leech this code, learn from it.	   #
-		   #		Sources: google.com for MIME and Colors :) #
+		   #		Sources: google.com for SMTP Servers       #
 		   #########################################################

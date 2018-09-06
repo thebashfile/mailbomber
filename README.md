@@ -20,7 +20,7 @@ Discord: SQLFail#6868
 ```
  - $ git clone https://github.com/sprxsh/emailbomber/
  - $ cd emailbomber
- - $ sudo python EBomb.py
+ - $ sudo python EBomb.pyc
 ```
 
 ### How it works?

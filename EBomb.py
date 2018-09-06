@@ -3,6 +3,7 @@
 import smtplib
 import random, string
 from time import sleep
+from getpass import getpass
 from subprocess import call
 import sys, platform, subprocess, socket, time, os, urllib,  random, string, urllib2
 import mimetypes
@@ -45,12 +46,12 @@ CG = '\033[1;35;32m' # magenta
 			#		Do not leech this code, learn from it.	   #
 			#		Sources: google.com for MIME and Colors :) #
 			####################################################
+links = (color.WHITE + color.BOLD + '''
+- SMTP Server List: https://pastebin.com/zfB0ENzy
+- SMS Gateway List: https://pastebin.com/NqC18TXA
+''')
 
-
-class EBOMB(object):
-      def start(self):
-      	os.system("clear")
-        print	(color.CYAN + '''
+banner = (color.CYAN + '''
 	███████╗    ██████╗  ██████╗ ███╗   ███╗██████╗ 
 	██╔════╝    ██╔══██╗██╔═══██╗████╗ ████║██╔══██╗
 	█████╗█████╗██████╔╝██║   ██║██╔████╔██║██████╔╝
@@ -59,51 +60,124 @@ class EBOMB(object):
 	╚══════╝    ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═════╝ 
 		By: @sprx.sh | <3
 		''' + color.END)
+os.system('clear')
+print banner
+print links
+
+print (color.YELLOW + color.BOLD + "┌─────────────────────────────────────────────────────────────────┐")
+print (color.YELLOW + color.BOLD + "│ " + color.RED + color.BOLD + "[1] " + color.WHITE + color.BOLD + "- Email Bomber") + (color.RED + color.BOLD + "                   [2] " + color.WHITE + color.BOLD + "- SMS Bomber" + color.YELLOW + color.BOLD + "           │ ")
+print (color.YELLOW + color.BOLD + "│ " + color.RED + color.BOLD + "[3] " + color.WHITE + color.BOLD + "- Help")   + (color.RED + color.BOLD + "                           [4] " + color.WHITE + color.BOLD + "- Information" + color.YELLOW + color.BOLD + "          │ ")
+print (color.YELLOW + color.BOLD + "└─────────────────────────────────────────────────────────────────┘")
+
+bomberoption = raw_input(color.YELLOW + color.BOLD + " └─" + color.CYAN + color.BOLD + "[✗]─[user@ebomb]: ")
+print('')
  
-      def SMTP(connect):
-            print (color.RED + color.BOLD + "SMTP Server List: https://pastebin.com/zfB0ENzy" + color.END)
-            print (color.WHITE + color.BOLD + "=-=-=-=-=-=-=-=|Connection/Login|=-=-=-=-=-=-=-=" + color.BOLD + color.COREGREEN)
+def emailbomboption():
+            print (color.WHITE + color.BOLD + "[Connection/Login]" + color.BOLD + color.COREGREEN)
             time.sleep(2)
-            connect.smtpserver=raw_input("\nSMTP server: ")
-            connect.smtpport=input("Enter Port: ")
+            smtpserver=raw_input("Server: ")
+            smtpport=input("Port: ")
             try:
-                  connect.mailServer = smtplib.SMTP(connect.smtpserver,connect.smtpport)
+                  mailServer = smtplib.SMTP(smtpserver,smtpport)
             except IOError, e:
                   print 'Error: %s' %(e)
                   time.sleep(5)
                   sys.exit(1)
-            connect.mailServer.starttls()
-            connect.name=raw_input("Email/Username: ")
-            connect.password=raw_input("Password: ")
+            mailServer.starttls()
+            name=raw_input("Email/Username: ")
+            password=getpass("Password(Invisible): ")
             try:
-                  connect.mailServer.login(connect.name,connect.password)
+                  mailServer.login(name,password)
             except BaseException, e:
                   print 'Error: %s' % (e)
-                  time.sleep(3)
-                  sys.exit(1)
-      def typeemail(bomb):
-            print (color.WHITE + "\n=-=-=-=-=-=-=-=|Writing the Email|=-=-=-=-=-=-=-=" + color.BOLD + color.COREGREEN)
-            print "Fill out the Email <3"
+                  time.sleep(3) 
+            print (color.WHITE + "" + color.BOLD + color.COREGREEN)
+            print (color.WHITE + "[Writing the Email]" + color.BOLD + color.COREGREEN)
             print (color.RED + "Example: " + color.WHITE + color.UNDERLINE + "name@service.com" + color.END + color.COREGREEN)
-            bomb.From = raw_input("\nFrom: ")
-            bomb.Receiver = raw_input("To: ")
-            bomb.Subject = raw_input("Subject: ")
-            bomb.Message = raw_input("Message: ")
-            email = MIMEText(bomb.Message)
-            email['From']=bomb.From
-            email['To']=bomb.Receiver
-            email['Subject']=bomb.Subject
-            bomb.amount = input(color.CYAN + "\nAmount: ")
+            From = raw_input("From: ")
+            Receiver = raw_input("To: ")
+            Subject = raw_input("Subject: ")
+            Message = raw_input("Message: ")
+            email = MIMEText(Message)
+            email['From']=From
+            email['To']=Receiver
+            email['Subject']=Subject
+            amount = input(color.CYAN + "Amount: ")
             x = 0
-            while x < bomb.amount:
-                  bomb.mailServer.sendmail(bomb.From, bomb.Receiver, email.as_string())
+            while x < amount:
+                  mailServer.sendmail(From, Receiver, email.as_string())
                   x+=1
-            print "Sent %d messages to %s" %(bomb.amount,bomb.Receiver)
+            print "Sent %d messages to %s" %(amount,Receiver)
             time.sleep(2)
             print "Email(s) Sent!\n"
             print "Instagram: @sprx.sh"
-if __name__ == '__main__':
-      s = EBOMB()
-      s.start()
-      s.SMTP()
-s.typeemail()
+            
+def smsbomboption():
+            print (color.WHITE + color.BOLD + "[Connection/Login]" + color.BOLD + color.COREGREEN)
+            time.sleep(2)
+            smtpserver=raw_input("Server: ")
+            smtpport=input("Port: ")
+            try:
+                  mailServer = smtplib.SMTP(smtpserver,smtpport)
+            except IOError, e:
+                  print 'Error: %s' %(e)
+                  time.sleep(5)
+                  sys.exit(1)
+            mailServer.starttls()
+            name=raw_input("Email: ")
+            password=getpass("Password(Invisible): ")
+            try:
+                  mailServer.login(name,password)
+            except BaseException, e:
+                  print 'Error: %s' % (e)
+                  time.sleep(3) 
+            print (color.WHITE + "" + color.BOLD + color.COREGREEN)
+            print (color.WHITE + "[Writing the SMS]" + color.BOLD + color.COREGREEN)
+            print (color.RED + "Example: " + color.WHITE + color.UNDERLINE + "number@smsgateway.com" + color.END + color.COREGREEN)
+            From = raw_input("From: ")
+            Receiver = raw_input("To: ")
+            Subject = raw_input("Subject: ")
+            Message = raw_input("Message: ")
+            email = MIMEText(Message)
+            email['From']=From
+            email['To']=Receiver
+            email['Subject']=Subject
+            amount = input(color.CYAN + "Amount: ")
+            x = 0
+            while x < amount:
+                  mailServer.sendmail(From, Receiver, email.as_string())
+                  x+=1
+            print "Sent %d SMS Messages to %s" %(amount,Receiver)
+            time.sleep(2)
+            print "SMS(s) Sent!\n"
+            print "Instagram: @sprx.sh"
+            
+def help():
+		os.system('clear')
+		print banner
+		print (color.YELLOW + color.BOLD + " ┌─────────────────────────────────────────────────────────────────┐")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Usage] " + color.WHITE + color.BOLD + "- sudo python EBomb.py") + (color.YELLOW + color.BOLD + "                                  │ ")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Cant Login] " + color.WHITE + color.BOLD + "- Did you type the email/password correct?") + (color.YELLOW + color.BOLD + "         │ ")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Coding Errors] " + color.WHITE + color.BOLD + "- You or Someone else messed with the code :/") + (color.YELLOW + color.BOLD + "   │ ")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Updater] " + color.WHITE + color.BOLD + "- https://github.com/sprxsh/emailbomber") + (color.YELLOW + color.BOLD + "               │ ")
+		print (color.YELLOW + color.BOLD + " └─────────────────────────────────────────────────────────────────┘")
+
+def information():
+		os.system('clear')
+		print banner
+		print (color.YELLOW + color.BOLD + " ┌─────────────────────────────────────────────────────────────────┐")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Instagram] " + color.WHITE + color.BOLD + "- https://www.instagram.com/sprx.sh/") + (color.YELLOW + color.BOLD + "                │ ")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Discord] " + color.WHITE + color.BOLD + "- SQLFail#6868") + (color.YELLOW + color.BOLD + "                                        │ ")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Version] " + color.WHITE + color.BOLD + "- v2 - Design Changed :)") + (color.YELLOW + color.BOLD + "                              │ ")
+		print (color.YELLOW + color.BOLD + " │ " + color.RED + color.BOLD + "[Protection] " + color.WHITE + color.BOLD + "- I (@SPRX.SH) AM NOT RESPONSIBLE FOR WHAT YOU DO") + (color.YELLOW + color.BOLD + "  │ ")
+		print (color.YELLOW + color.BOLD + " └─────────────────────────────────────────────────────────────────┘")
+		
+#Bomber Options  
+if bomberoption == '1':
+  	  	emailbomboption() 
+elif bomberoption == '2':
+  		smsbomboption()
+elif bomberoption == '3':
+  		help()
+elif bomberoption == '4':
+  		information()

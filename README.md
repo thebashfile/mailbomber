@@ -14,7 +14,7 @@ Usage of EBomb for attacking targets without prior mutual consent is illegal. It
 Instagram: @sprx.sh
 Discord: SQLFail#6868
 
-![EBomb](https://i.imgur.com/1gFMoMT)
+![EBomb](https://i.imgur.com/43NMKvp.png)
 
 # How to Install & Use
 ```

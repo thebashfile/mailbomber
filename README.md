@@ -18,8 +18,8 @@ Discord: SQLFail#6868
 
 # How to Install & Use
 ```
- - $ git clone https://github.com/sprxsh/emailbomber/
- - $ cd emailbomber
+ - $ git clone https://github.com/sprxsh/mailbomber/
+ - $ cd mailbomber
  - $ sudo python EBomb.pyc
 ```
 

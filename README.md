@@ -11,14 +11,14 @@ Usage of EBomb for attacking targets without prior mutual consent is illegal. It
  - I am not responsible for what you do/use with this tool!
  - This script is harmless but can be used maliciously.
 
-Instagram: @sprx.sh
-Discord: SQLFail#6868
+Instagram: @bashfile
+Discord: Cosmic#1337
 
 ![EBomb](https://i.imgur.com/43NMKvp.png)
 
 # How to Install & Use
 ```
- - $ git clone https://github.com/sprxsh/mailbomber/
+ - $ git clone https://github.com/thebashfile/mailbomber/
  - $ cd mailbomber
  - $ sudo python EBomb.pyc
 ```
@@ -27,7 +27,7 @@ Discord: SQLFail#6868
 It uses SMTP Servers to loginto your email account and allows you to send mass emails!
 
 		   #########################################################
-		   #		Creator: @sprx.sh			   #
+		   #		Creator: @bashfile			   #
 		   #		Do not leech this code, learn from it.	   #
 		   #		Sources: google.com for SMTP Servers       #
 		   #########################################################

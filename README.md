@@ -12,7 +12,7 @@ Usage of EBomb for attacking targets without prior mutual consent is illegal. It
  - This script is harmless but can be used maliciously.
 
 Instagram: @bashfile
-Discord: Cosmic#1337
+Discord: Cosmic#7167
 
 ![EBomb](https://i.imgur.com/43NMKvp.png)
 
